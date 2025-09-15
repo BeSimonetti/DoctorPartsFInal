@@ -1,0 +1,403 @@
+/* ========================= */
+/* ======== RESET ========== */
+/* ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================= */
+/* ======== HEADER ========= */
+/* ========================= */
+header {
+  position: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.menu .logo img {
+  height: 85px;
+}
+
+/* Links de navegação */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #FF9900;
+}
+
+/* Busca */
+#divBusca {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+#divBusca input {
+  border: none;
+  padding: 5px;
+  outline: none;
+}
+
+/* Login / Cadastro */
+.user-access {
+  color: white;
+  font-size: 14px;
+}
+
+.yolonosay.cadastro,
+.yolonosay.logado {
+  color: #FF9900;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+.yolonosay.cadastro:hover,
+.yolonosay.logado:hover {
+  color: #e08800;
+}
+
+/* Carrinho */
+#divCarrinho img {
+  margin-left: 10px;
+}
+.badge-carrinho {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* ========================= */
+/* ========= MAIN ========== */
+/* ========================= */
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* Mini menu (categorias ou atalhos) */
+.mini-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  min-width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-mini-menu {
+  background-color: #f1f1f1;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border-left:  5px solid #FF9900;
+  text-align: center;
+}
+.item-mini-menu:hover {
+  background-color: #FF9900;
+  cursor: pointer;
+  color: #fff;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 900px; /* ajuste conforme necessário */
+    background: url("../../../assets/images/fachada.png") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85); /* leve escurecimento */
+    z-index: 1;
+}
+
+.hero .conteudo {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    max-width: 900px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-style: italic;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+h1 .doctor {
+    color: #ffcc00; /* amarelo */
+}
+
+h1 .parts {
+    color: #006923; /* verde */
+}
+
+
+
+/* ========================= */
+/* ======= FOOTER ========== */
+/* ========================= */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 30px 20px;
+  margin-top: auto;
+  left: 0;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contato {
+  flex: 1;
+}
+
+.contato p,
+.footer-descricao p {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+#imagem-contato {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.footer-descricao h2 {
+  margin-bottom: 10px;
+}
+
+/* ========================= */
+/* ======= MENSAGENS ======= */
+/* ========================= */
+.mensagem-sucesso,
+.mensagem-erro {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  cursor: pointer;
+}
+
+.mensagem-sucesso {
+  background-color: #28a745;
+  color: #fff;
+}
+.mensagem-erro {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* ========================= */
+/* ========= MODAIS ======== */
+/* ========================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-conteudo {
+  position: relative;
+  background-color: #fff;
+  margin: auto;
+  padding: 30px 25px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-conteudo h2 {
+  margin-bottom: 20px;
+  color: #222;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.modal-conteudo .fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-conteudo .fechar:hover {
+  color: #FF9900;
+}
+
+.input-modal {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.input-modal input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.input-modal input:focus {
+  border-color: #FF9900;
+  box-shadow: 0 0 5px rgba(255, 153, 0, 0.4);
+}
+
+.modal-conteudo button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF9900;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+.modal-conteudo button:hover {
+  background-color: #e08800;
+}
+
+/* ========================= */
+/* ====== ANIMAÇÕES ======== */
+/* ========================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========================= */
+/* ==== RESPONSIVIDADE ===== */
+/* ========================= */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .mini-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .modal-conteudo {
+    max-width: 90%;
+    padding: 20px;
+  }
+  .modal-conteudo h2 {
+    font-size: 18px;
+  }
+  .modal-conteudo button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,519 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  padding-top: 100px;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Fixed header styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+/* Navigation bar */
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+/* Company logo */
+.menu .logo img {
+  height: 85px;
+}
+
+/* Navigation links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Search bar container */
+#divBusca {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+#divBusca input {
+  border: none;
+  padding: 5px;
+  outline: none;
+  align-items: center;
+}
+
+/* User login/register area */
+.user-access {
+  color: white;
+  font-size: 14px;
+}
+
+.yolonosay.cadastro{
+  color: #FF9900;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.yolonosay.cadastro:hover {
+  color: #e08800;
+}
+
+.yolonosay.logado{
+  color: #FF9900;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.yolonosay.logado:hover {
+  color: #e08800;
+}
+
+/* Shopping cart icon */
+#divCarrinho img {
+  margin-left: 10px;
+}
+
+main{
+  flex: 1;
+}
+
+/* ======== ESTILOS DA PÁGINA DE DADOS DO USUÁRIO ======== */
+
+/* Container principal */
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Título */
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #FF9900;
+}
+
+/* Informações do usuário */
+.user-info {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.user-info p {
+  margin-bottom: 15px;
+}
+
+/* Botões de ação */
+.actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.actions .btn {
+  background-color: #FF9900;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.actions .btn:hover {
+  background-color: #e08800;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.blocos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Cada bloco (dados do usuário e endereços) */
+.bloco {
+  flex: 1;
+  min-width: 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Garantir que os títulos fiquem bonitos nos blocos */
+.bloco h1 {
+  color: #FF9900;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Endereços individuais */
+.endereco {
+  margin-bottom: 15px;
+  padding: 5px;
+  background-color: #f1f1f1;
+  border-left: 5px solid #FF9900;
+  border-radius: 5px;
+}
+
+
+
+
+.card-endereco {
+ 
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 1px;
+  background-color: #f1f1f1;
+  
+  font-family: 'Arial', sans-serif;
+  color: #444;
+}
+
+.card-endereco p {
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.card-endereco p strong {
+  font-size: 16px;
+  color: #222;
+}
+
+.acoes-endereco {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  gap: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.link-acao {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-acao.excluirEndereco {
+  color: #eb0101;
+}
+
+.link-acao.editar {
+  color: #0039b4;
+}
+
+.link-acao.padrao {
+  color: #ff6600;
+}
+
+
+
+
+
+.modal {
+  position: fixed;
+  display: none; /* quando abre vira flex */
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background: #111;
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 10px #ff9900;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  text-align: center;
+  margin: 0 auto; /* segurança extra */
+}
+
+
+ /* .modal {
+  position: fixed;
+  display: none; 
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}  */
+
+/* .modal-conteudo {
+  background: #111;
+  padding: 30px 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 0 10px #ff9900;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  text-align: center;
+
+  margin: 0 auto;
+} */
+
+
+
+/* Close button */
+.fechar {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Modal title */
+.modal-conteudo h2 {
+  font-size: 28px;
+  color: #FFD700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.modal-conteudo h3 {
+  font-size: 24px;
+  color: #FFD700;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+/* Input fields in modal */
+.input-modal {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.input-modal label {
+  margin-bottom: 6px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.input-modal input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-modal input::placeholder {
+  color: #888;
+}
+
+.input-modal input:focus {
+  box-shadow: 0 0 0 2px #ff9900;
+}
+
+/* Submit button in modal */
+.modal-conteudo button {
+  width: 100%;
+  background-color: #FF9900;
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.modal-conteudo button:hover {
+  background-color: #e08800;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Faz o main ocupar o espaço disponível */
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  padding: 30px 20px;
+  margin-top: auto; /* Empurra o footer para o fim */
+  left: 0;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contato {
+  flex: 1;
+}
+
+.contato p,
+.footer-descricao p {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+#imagem-contato {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.footer-descricao h2 {
+  margin-bottom: 10px;
+}
+/*  */
+.mensagem-sucesso {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #28a745;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  cursor: pointer;
+}
+/*  */
+.mensagem-erro {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dc3545;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 2000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  cursor: pointer;
+}
+
+.badge-carrinho {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+#divCarrinho {
+    position: relative;
+    display: inline-block;
+}
+.badge-carrinho {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+  }
