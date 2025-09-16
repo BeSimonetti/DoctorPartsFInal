@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/09/2025 às 05:25
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Generation Time: Sep 16, 2025 at 02:42 AM
+-- Server version: 11.8.2-MariaDB
+-- PHP Version: 8.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `doctorpartsdb`
+-- Database: `doctorpartsdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `carrinho`
+-- Table structure for table `carrinho`
 --
 
 CREATE TABLE `carrinho` (
@@ -36,7 +36,7 @@ CREATE TABLE `carrinho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `carrinho`
+-- Dumping data for table `carrinho`
 --
 
 INSERT INTO `carrinho` (`id_carrinho`, `id_usuario`, `id_produto`, `quantidade`, `data_adicionado`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `carrinho` (`id_carrinho`, `id_usuario`, `id_produto`, `quantidade`,
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -54,7 +54,7 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `categorias`
+-- Dumping data for table `categorias`
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nome`) VALUES
@@ -70,7 +70,7 @@ INSERT INTO `categorias` (`id_categoria`, `nome`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `enderecos`
+-- Table structure for table `enderecos`
 --
 
 CREATE TABLE `enderecos` (
@@ -87,7 +87,7 @@ CREATE TABLE `enderecos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `enderecos`
+-- Dumping data for table `enderecos`
 --
 
 INSERT INTO `enderecos` (`id_endereco`, `id_usuario`, `numero`, `cep`, `rua`, `bairro`, `cidade`, `estado`, `complemento`, `padrao`) VALUES
@@ -96,7 +96,7 @@ INSERT INTO `enderecos` (`id_endereco`, `id_usuario`, `numero`, `cep`, `rua`, `b
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `itens_pedido`
+-- Table structure for table `itens_pedido`
 --
 
 CREATE TABLE `itens_pedido` (
@@ -108,7 +108,7 @@ CREATE TABLE `itens_pedido` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `itens_pedido`
+-- Dumping data for table `itens_pedido`
 --
 
 INSERT INTO `itens_pedido` (`id_itens_pedido`, `id_pedido`, `id_produto`, `quantidade`, `preco_unitario`) VALUES
@@ -132,29 +132,7 @@ INSERT INTO `itens_pedido` (`id_itens_pedido`, `id_pedido`, `id_produto`, `quant
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pagamentos`
---
-
-CREATE TABLE `pagamentos` (
-  `id_pagamento` int(11) NOT NULL,
-  `id_pedido` int(11) DEFAULT NULL,
-  `metodo_pagamento` enum('cartao','boleto','pix','paypal') DEFAULT NULL,
-  `valor_pago` decimal(10,2) DEFAULT NULL,
-  `data_pagamento` datetime DEFAULT NULL,
-  `status` enum('pendente','aprovado','rejeitado') DEFAULT 'pendente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `pagamentos`
---
-
-INSERT INTO `pagamentos` (`id_pagamento`, `id_pedido`, `metodo_pagamento`, `valor_pago`, `data_pagamento`, `status`) VALUES
-(1, 1, 'cartao', 108.00, '2025-09-09 23:33:06', 'pendente');
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `pedidos`
+-- Table structure for table `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -168,7 +146,7 @@ CREATE TABLE `pedidos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `pedidos`
+-- Dumping data for table `pedidos`
 --
 
 INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `id_endereco`, `data_pedido`, `status`, `total`, `forma_pagamento`) VALUES
@@ -204,7 +182,7 @@ INSERT INTO `pedidos` (`id_pedido`, `id_usuario`, `id_endereco`, `data_pedido`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `produtos`
+-- Table structure for table `produtos`
 --
 
 CREATE TABLE `produtos` (
@@ -219,7 +197,7 @@ CREATE TABLE `produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `produtos`
+-- Dumping data for table `produtos`
 --
 
 INSERT INTO `produtos` (`id_produto`, `id_categoria`, `nome`, `descricao`, `preco`, `estoque`, `image_url`, `data_criacao`) VALUES
@@ -251,7 +229,7 @@ INSERT INTO `produtos` (`id_produto`, `id_categoria`, `nome`, `descricao`, `prec
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -266,20 +244,25 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nome`, `email`, `contato`, `senha`, `data_criacao`, `cpf`, `isadmin`) VALUES
-(15, 'bolsonaro', 'bolsonaro@gmail.com', '(65) 46465-4564', '$2y$12$jBuwV5/nOhYR2SqO.JZ80eT8hHgRccjq1QK8Vnwk3NHeGdeH0l/.a', '2025-07-29 21:06:05', '456.465.564-64', 1),
-(16, 'bernardo', 'bernardoanderson.simonetti@gmail.com', '(78) 98984-4145', '$2y$12$N.eo7RYOIR4QOqHf69vk6uXbjYXKr18rNNBnMKHyNKIwrTvte5W76', '2025-07-29 21:08:56', '454.654.654-65', 0),
-(17, 'lucas bertuol', 'lucas@email.com', '(54) 32132-1321', '$2y$10$v51NjqDiANXJIp2v2jMRxO90EIrexpSavEssvXAeYtJqOJwf0P0zC', '2025-08-24 23:08:19', '030.458.120-82', 0);
+(15, 'bolsonaro', 'bolsonaro@gmail.com', '(65) 46465-4564', '$2y$12$vyzwevBh4j3vRWVl5HKKT.OMulGGPPRqfEd3CeDN9hNc0c89gdUMq', '2025-07-29 21:06:05', '456.465.564-64', 1),
+(17, 'lucas bertuol', 'lucas@email.com', '(54) 32132-1321', '$2y$10$v51NjqDiANXJIp2v2jMRxO90EIrexpSavEssvXAeYtJqOJwf0P0zC', '2025-08-24 23:08:19', '030.458.120-82', 0),
+(18, 'as', 'asdasd@gmail.com', '12312312312312', '$2y$12$cd/1Vlexl3fwzbvEU6LVw.5LvJMfet1ReeEbDGSh2eMLmIsyYKd6O', '2025-09-15 19:18:47', '123123123123123123123', 0),
+(19, 'awdawd', 'asdasd@gmail.com', '435345345345345', '$2y$12$TmAmGsr5Vl219EOwDxDv3eE6XYaU0LD6tPZ8.M4oIr0DWydrJIe3i', '2025-09-15 19:44:41', '45345345345', 0),
+(20, 'bolsonaro', 'bernardo@gmail.com', '(23) 42342-3423', '$2y$12$8xHekxHaSyLfBqMlGXC2f.CJra9T.Ijlz/rUvBxXfcYTyxbfBngTq', '2025-09-15 21:16:42', '231.423.423-42', 0),
+(21, '12312312', 'berna@gmail.com', '(12) 31231-2312', '$2y$12$lpjs88JIdMYZEkiNF9yEauUmBLB2b8zpoq/v0.Pya3oMqNPhkd9km', '2025-09-15 21:23:37', '123.123.231-23', 0),
+(22, 'simo', 'simo@gmail.com', '(12) 31231-2312', '$2y$12$tX07vj5/5HyJKcSvHpjQBef3eD1lpKRjr33bMbOnHhsTGs2HPuSEO', '2025-09-15 21:29:36', '456.465.564-64', 0),
+(23, 'bolsonaro', 'bolso@gmail.com', '(90) 28394-2038', '$2y$12$RS8It3Iz9Sbx1vZ75nSWmehPkkocuLLizK8HFRhvKYDJESZVQg4Qe', '2025-09-15 21:34:25', '923.481.209-38', 0);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `carrinho`
+-- Indexes for table `carrinho`
 --
 ALTER TABLE `carrinho`
   ADD PRIMARY KEY (`id_carrinho`),
@@ -287,20 +270,20 @@ ALTER TABLE `carrinho`
   ADD KEY `id_produto` (`id_produto`);
 
 --
--- Índices de tabela `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
--- Índices de tabela `enderecos`
+-- Indexes for table `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD PRIMARY KEY (`id_endereco`),
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Índices de tabela `itens_pedido`
+-- Indexes for table `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
   ADD PRIMARY KEY (`id_itens_pedido`),
@@ -308,14 +291,7 @@ ALTER TABLE `itens_pedido`
   ADD KEY `id_produto` (`id_produto`);
 
 --
--- Índices de tabela `pagamentos`
---
-ALTER TABLE `pagamentos`
-  ADD PRIMARY KEY (`id_pagamento`),
-  ADD KEY `id_pedido` (`id_pedido`);
-
---
--- Índices de tabela `pedidos`
+-- Indexes for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id_pedido`),
@@ -323,109 +299,97 @@ ALTER TABLE `pedidos`
   ADD KEY `id_endereco` (`id_endereco`);
 
 --
--- Índices de tabela `produtos`
+-- Indexes for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD PRIMARY KEY (`id_produto`),
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
--- Índices de tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `carrinho`
+-- AUTO_INCREMENT for table `carrinho`
 --
 ALTER TABLE `carrinho`
   MODIFY `id_carrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
--- AUTO_INCREMENT de tabela `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de tabela `enderecos`
+-- AUTO_INCREMENT for table `enderecos`
 --
 ALTER TABLE `enderecos`
   MODIFY `id_endereco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de tabela `itens_pedido`
+-- AUTO_INCREMENT for table `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
   MODIFY `id_itens_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT de tabela `pagamentos`
---
-ALTER TABLE `pagamentos`
-  MODIFY `id_pagamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `pedidos`
+-- AUTO_INCREMENT for table `pedidos`
 --
 ALTER TABLE `pedidos`
   MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT de tabela `produtos`
+-- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
   MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- Restrições para tabelas despejadas
+-- Constraints for dumped tables
 --
 
 --
--- Restrições para tabelas `carrinho`
+-- Constraints for table `carrinho`
 --
 ALTER TABLE `carrinho`
   ADD CONSTRAINT `carrinho_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
   ADD CONSTRAINT `carrinho_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`);
 
 --
--- Restrições para tabelas `enderecos`
+-- Constraints for table `enderecos`
 --
 ALTER TABLE `enderecos`
   ADD CONSTRAINT `enderecos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Restrições para tabelas `itens_pedido`
+-- Constraints for table `itens_pedido`
 --
 ALTER TABLE `itens_pedido`
   ADD CONSTRAINT `itens_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`),
   ADD CONSTRAINT `itens_pedido_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`);
 
 --
--- Restrições para tabelas `pagamentos`
---
-ALTER TABLE `pagamentos`
-  ADD CONSTRAINT `pagamentos_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id_pedido`);
-
---
--- Restrições para tabelas `pedidos`
+-- Constraints for table `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`),
   ADD CONSTRAINT `pedidos_ibfk_2` FOREIGN KEY (`id_endereco`) REFERENCES `enderecos` (`id_endereco`);
 
 --
--- Restrições para tabelas `produtos`
+-- Constraints for table `produtos`
 --
 ALTER TABLE `produtos`
   ADD CONSTRAINT `produtos_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`);

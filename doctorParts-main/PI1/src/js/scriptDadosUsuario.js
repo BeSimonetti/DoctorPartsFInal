@@ -227,6 +227,17 @@ if (formEditarUsuario) {
     formEditarUsuario.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        const nomeInput = document.getElementById('editar_nome');
+        const nome = nomeInput.value.trim();
+
+        // Verificação do nome: só letras e espaços, mínimo 3 caracteres
+        const nomeValido = /^[A-Za-zÀ-ÿ\s]{3,}$/.test(nome);
+        if (!nomeValido) {
+            exibirMensagem('Informe um nome válido com pelo menos 3 letras.', 'erro');
+            nomeInput.focus();
+            return;
+        }
+
         const dados = new URLSearchParams(new FormData(formEditarUsuario));
 
         fetch(formEditarUsuario.action, {
@@ -246,6 +257,7 @@ if (formEditarUsuario) {
         .catch(() => exibirMensagem('Erro ao enviar os dados.', 'erro'));
     });
 }
+
 // ---------------------- EDITAR SENHA ----------------------
 const formAlterarSenha = document.getElementById('formAlterarSenha');
 
@@ -270,6 +282,17 @@ if (formAlterarSenha) {
 
         const novaSenha = document.getElementById('nova_senha').value;
         const confirmarSenha = document.getElementById('confirmar_nova_senha').value;
+
+        // Validação da senha (mínimo 6 caracteres)
+        if (novaSenha.length < 6) {
+            exibirMensagem('Senha deve ter no mínimo 6 caracteres.', 'erro');
+            return;
+        }
+
+        if (confirmarSenha.length < 6) {
+            exibirMensagem('Senha deve ter no mínimo 6 caracteres.', 'erro');
+            return;
+        }
 
         // Validação de confirmação
         if (novaSenha !== confirmarSenha) {

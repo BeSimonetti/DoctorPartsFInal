@@ -585,7 +585,6 @@ $quantidadeItens = $usuario ? $carrinho->contarItens($usuarioLogadoId) : 0;
                     </div>
                 </div>
             </div>
-
         </div>
     <?php endif; ?>
     <!-- Website footer -->
@@ -627,10 +626,10 @@ $quantidadeItens = $usuario ? $carrinho->contarItens($usuarioLogadoId) : 0;
                     <input type="email" id="email" name="email" required placeholder="Insira seu e-mail">
                 </div>
                 <div class="input-modal">
-                    <input type="text" id="cpf" name="cpf" required placeholder="Inisira seu CPF">
+                    <input type="text" id="cpf" name="cpf" required placeholder="Insira seu CPF">
                 </div>
                 <div class="input-modal">
-                    <input type="tel" id="contato" name="contato" required placeholder="(00) 00000-0000">
+                    <input type="text" id="numeroContato" name="numeroContato" required placeholder="(00) 00000-0000">
                 </div>
                 <div class="input-modal">
                     <input type="password" id="senha" name="senha" required placeholder="Insira sua senha">
@@ -660,5 +659,4 @@ $quantidadeItens = $usuario ? $carrinho->contarItens($usuarioLogadoId) : 0;
     <script src="https://unpkg.com/imask"></script>
     <script src="../../js/scriptIndex.js" defer></script>
 </body>
-
 </html>

@@ -1,3 +1,23 @@
+// ---------------------- MÁSCARAS ----------------------
+
+// CPF
+const cpfInput = document.getElementById('cpf');
+if (cpfInput) {
+    if (!cpfInput.value) cpfInput.value = ''; // garante que seja string
+    IMask(cpfInput, {
+        mask: '000.000.000-00'
+    });
+}
+
+// Contato
+const contatoInput = document.getElementById('numeroContato');
+if (contatoInput) {
+    if (!contatoInput.value) contatoInput.value = ''; // garante que seja string
+    IMask(contatoInput, {
+        mask: '(00) 00000-0000'
+    });
+}
+
 // ---------------------- CARROSSEL ----------------------
 document.querySelectorAll('.carrossel').forEach(carrossel => {
     const slides = carrossel.querySelector('.slides');
@@ -29,6 +49,7 @@ document.querySelectorAll('.carrossel').forEach(carrossel => {
     });
 });
 
+
 // ---------------------- BOTÃO CARRINHO ----------------------
 document.querySelectorAll('.botao-carrinho').forEach(botao => {
     botao.addEventListener('click', () => {
@@ -38,17 +59,29 @@ document.querySelectorAll('.botao-carrinho').forEach(botao => {
 
 // ---------------------- MODAIS ----------------------
 function abrirPopupCadastro() {
-    document.getElementById("popupCadastro").style.display = "flex";
+    const popup = document.getElementById("popupCadastro");
+    popup.style.display = "flex";
+
+    // Limpar campos do formulário e máscaras
+    const form = document.getElementById('formCadastro');
+    if (form) form.reset();
 }
+
 function fecharPopupCadastro() {
     document.getElementById("popupCadastro").style.display = "none";
 }
 
+// ---------------------- LOGIN ----------------------
 function abrirPopupLogin() {
     document.getElementById("popupLogin").style.display = "flex";
 }
+
 function fecharPopupLogin() {
-    document.getElementById("popupLogin").style.display = "none";
+    const popup = document.getElementById("popupLogin");
+    popup.style.display = "none";
+
+    const form = document.getElementById('formLogin');
+    if (form) form.reset();
 }
 
 // ---------------------- VARIÁVEIS ----------------------
@@ -61,12 +94,31 @@ if (formCadastro) {
     formCadastro.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        const nome = formCadastro.nome.value.trim();
+        const email = formCadastro.email.value.trim();
+        const cpf = formCadastro.cpf.value.trim();
+        const numeroContato = formCadastro.numeroContato.value.trim(); // corrigido aqui
+        const senha = formCadastro.senha.value;
+
+        // Validação do nome (somente letras e espaços)
+        const nomeValido = /^[A-Za-zÀ-ÿ\s]+$/.test(nome);
+        if (!nomeValido) {
+            exibirMensagem('Nome inválido. Use apenas letras e espaços.', 'erro');
+            return;
+        }
+
+        // Validação da senha (mínimo 6 caracteres)
+        if (senha.length < 6) {
+            exibirMensagem('Senha deve ter no mínimo 6 caracteres.', 'erro');
+            return;
+        }
+
         const formData = new URLSearchParams();
-        formData.append('nome', formCadastro.nome.value);
-        formData.append('email', formCadastro.email.value);
-        formData.append('cpf', formCadastro.cpf.value);
-        formData.append('contato', formCadastro.contato.value);
-        formData.append('senha', formCadastro.senha.value);
+        formData.append('nome', nome);
+        formData.append('email', email);
+        formData.append('cpf', cpf);
+        formData.append('contato', numeroContato);
+        formData.append('senha', senha);
 
         fetch(formCadastro.action, {
             method: 'POST',
@@ -85,6 +137,8 @@ if (formCadastro) {
         .catch(() => exibirMensagem('Erro ao enviar os dados.', 'erro'));
     });
 }
+
+
 
 // ---------------------- LOGIN ----------------------
 if (formLogin) {
@@ -126,15 +180,4 @@ if (mensagem) {
     mensagem.addEventListener('click', () => {
         mensagem.style.display = 'none';
     });
-}
-
-// ---------------------- MÁSCARAS ----------------------
-const contatoInput = document.getElementById('contato');
-if (contatoInput) {
-    IMask(contatoInput, { mask: '(00) 00000-0000' });
-}
-
-const cpfInput = document.getElementById('cpf');
-if (cpfInput) {
-    IMask(cpfInput, { mask: '000.000.000-00' });
 }
