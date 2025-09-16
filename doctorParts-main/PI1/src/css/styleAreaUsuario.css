@@ -309,3 +309,114 @@ footer {
     font-size: 12px;
     font-weight: bold;
 }
+
+
+/* =========================
+   MOBILE FRIENDLY
+   ========================= */
+@media (max-width: 768px) {
+  /* Header */
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu .logo img {
+    height: 60px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  /* Barra de busca */
+  #divBusca {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #divBusca input {
+    width: 100%;
+  }
+
+  /* Mini menu */
+  .mini-menu {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .item-mini-menu {
+    width: 100%;
+  }
+
+  /* Último Pedido */
+  .ultimo-pedido {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .ultimo-pedido h1 {
+    font-size: 20px;
+  }
+
+  .ultimo-pedido h2 {
+    font-size: 18px;
+  }
+
+  .ultimo-pedido p,
+  .ultimo-pedido li {
+    font-size: 14px;
+  }
+
+  /* Footer */
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .contato {
+    flex: none;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes extras para celulares pequenos */
+  body {
+    padding-top: 80px; /* header menor */
+  }
+
+  header {
+    padding: 8px;
+  }
+
+  .menu .logo img {
+    height: 50px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .item-mini-menu {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .ultimo-pedido h1 {
+    font-size: 18px;
+  }
+
+  .ultimo-pedido h2 {
+    font-size: 16px;
+  }
+
+  .ultimo-pedido a {
+    font-size: 14px;
+  }
+}

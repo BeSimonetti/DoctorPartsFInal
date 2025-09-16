@@ -118,29 +118,52 @@ button:hover {
   background-color: #e08800;
 }
 
-/* Responsividade */
+/* ================== RESPONSIVIDADE ================== */
 @media (max-width: 480px) {
   body {
-    padding: 30px 15px;
+    padding: 20px 10px;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
   }
 
   h2 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-top: 15px;
   }
 
   ul li {
     font-size: 0.9rem;
     flex-direction: column;
     align-items: flex-start;
+    padding: 10px 12px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+
+  form {
+    padding: 18px 15px;
+  }
+
+  form label {
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
 
   button {
-    font-size: 1.1rem;
+    font-size: 1rem;
     padding: 12px;
+    border-radius: 10px;
   }
 }
 

@@ -51,18 +51,36 @@ table th {
   background-color: #e08800;
 }
 
+/* ================== RESPONSIVIDADE ================== */
 @media (max-width: 600px) {
   .container-pedidos {
-    padding: 20px 10px;
+    padding: 20px 12px;
+  }
+
+  .container-pedidos h1 {
+    font-size: 1.4rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto; /* scroll horizontal */
+    white-space: nowrap;
   }
 
   table th, table td {
     font-size: 14px;
-    padding: 8px;
+    padding: 8px 6px;
   }
 
   .botao-detalhes {
     padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .botao-voltar {
+    width: 100%; /* ocupa toda a largura no mobile */
+    text-align: center;
+    margin-bottom: 15px;
   }
 }
 

@@ -452,3 +452,104 @@ footer {
 .item-busca form {
   margin-top: 10px;
 }
+
+
+
+/* ================== RESPONSIVIDADE ================== */
+
+/* Tablets (até 768px) */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #divBusca {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .carrossel {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .slide {
+    min-width: 200px;
+  }
+
+  .item-busca {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-busca img {
+    width: 100%;
+    height: auto;
+    margin: 0 0 15px 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+/* Celulares (até 480px) */
+@media (max-width: 480px) {
+  header {
+    height: auto;
+    padding: 10px;
+  }
+
+  .menu {
+    padding: 10px;
+  }
+
+  .menu .logo img {
+    height: 60px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .slide {
+    min-width: 160px;
+    padding: 8px;
+  }
+
+  .descricao {
+    font-size: 14px;
+  }
+
+  .botao-carrosel {
+    height: 28px;
+    width: 28px;
+    font-size: 12px;
+  }
+
+  .resultado-lista {
+    padding: 10px;
+  }
+
+  .item-busca .info h3 {
+    font-size: 16px;
+  }
+
+  .item-busca .info p {
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 20px 10px;
+  }
+}

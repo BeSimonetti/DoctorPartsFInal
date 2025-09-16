@@ -267,11 +267,21 @@ footer {
   font-size: 18px;
 }
 
-/* Responsividade simples */
+/* =========================
+   RESPONSIVIDADE MOBILE
+   ========================= */
+
+/* Tablets e telas médias */
 @media (max-width: 768px) {
+  /* Header */
   .menu {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+  }
+
+  .menu .logo img {
+    height: 65px;
   }
 
   .nav-links {
@@ -281,30 +291,124 @@ footer {
   }
 
   #divBusca {
+    width: 100%;
     margin-top: 10px;
   }
 
+  #divBusca input {
+    width: 100%;
+  }
+
+  /* Carrinho */
   .carrinho-container {
-    margin: 20px 15px 80px;
+    margin: 20px 10px 60px;
     padding: 20px;
   }
 
-  table th, table td {
+  table th,
+  table td {
     padding: 8px;
     font-size: 14px;
   }
 
-  button {
-    padding: 6px 10px;
+  table td img {
+    width: 50px;
+    height: 50px;
+  }
+
+  input[type="number"] {
+    width: 50px;
     font-size: 14px;
   }
 
-  footer .footer {
-    flex-direction: column;
-    align-items: flex-start;
+  button {
+    padding: 6px 12px;
+    font-size: 14px;
   }
 
-  .contato, .footer-descricao {
+  /* Footer */
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .contato,
+  .footer-descricao {
     margin: 5px 0;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  body {
+    padding-top: 90px; /* header menor */
+  }
+
+  header {
+    padding: 8px;
+  }
+
+  .menu .logo img {
+    height: 50px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  #divBusca input {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  /* Carrinho */
+  .carrinho-container {
+    margin: 15px 5px 50px;
+    padding: 15px;
+  }
+
+  .carrinho-container h1 {
+    font-size: 1.4rem;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table th,
+  table td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  table td img {
+    width: 40px;
+    height: 40px;
+  }
+
+  input[type="number"] {
+    width: 40px;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .carrinho-container > a > button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* Footer */
+  .footer-descricao h2 {
+    font-size: 16px;
+  }
+
+  .contato p,
+  .footer-descricao p {
+    font-size: 12px;
   }
 }
